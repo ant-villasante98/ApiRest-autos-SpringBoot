@@ -63,7 +63,11 @@ public class ConcesionariaApplication {
 
     public String crearAuto(ModeloCreateAutoRequest modeloCreate){
 
-        final ModeloResponse modeloResponse = this.buscarModelo(modeloCreate.getId());
-        return
+        final Modelo modelo = modeloService.buscarModelo(modeloCreate.getId());
+        return this.autoService.crearAuto(modelo);
+    }
+
+    public AutoResponse buscarAuto(String id ){
+        return  AutoResponse.from( autoService.buscarAuto(id));
     }
 }
