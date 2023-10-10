@@ -11,4 +11,8 @@ public interface AutoService {
 	Auto buscarAuto(String id);
 
 	List<Auto> listarAutos();
+
+	Auto modificarAuto(Auto auto);
+
+	void eliminarAuto(Auto auto);
 }

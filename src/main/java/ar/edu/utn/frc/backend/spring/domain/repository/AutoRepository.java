@@ -10,4 +10,8 @@ public interface AutoRepository {
 	void save(Auto auto);
 
 	Auto get(String id);
+
+	Auto modified(Auto auto);
+
+	void delete(Auto auto);
 }

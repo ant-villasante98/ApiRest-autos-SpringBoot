@@ -33,4 +33,14 @@ public class DomainAutoService implements AutoService{
     public List<Auto> listarAutos() {
         return autoRepository.getAll();
     }
+
+    @Override
+    public Auto modificarAuto(Auto auto) {
+        return autoRepository.modified(auto);
+    }
+
+    @Override
+    public void eliminarAuto(Auto auto) {
+        autoRepository.delete(auto);
+    }
 }

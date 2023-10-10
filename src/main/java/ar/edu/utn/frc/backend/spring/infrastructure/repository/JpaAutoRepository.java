@@ -41,4 +41,25 @@ public class JpaAutoRepository implements AutoRepository {
 		final AutoEntity auto = autoDao.getById(id);
 		return auto.toAuto();
 	}
+
+	@Override
+	public Auto modified(Auto auto) {
+		final AutoEntity autoEntity = autoDao.save(new AutoEntity(
+				auto.getId(),
+				auto.getChasis().getNumero(),
+				ModeloEntity.from(auto.getModelo())
+		));
+		return autoEntity.toAuto();
+	}
+
+	@Override
+	public void delete(Auto auto) {
+		autoDao.delete(new AutoEntity(
+				auto.getId(),
+				auto.getChasis().getNumero(),
+				ModeloEntity.from(auto.getModelo())));
+
+	}
+
+
 }
